@@ -1424,16 +1424,15 @@ function declineCookies() {
 }
 
 function loadGA4() {
-  // GA4 se učitava ovdje kad korisnik prihvati
-  // Zamijeniti G-XXXXXXXXXX s pravim GA4 Measurement ID kad bude spreman
-  // const script = document.createElement('script');
-  // script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-  // script.async = true;
-  // document.head.appendChild(script);
-  // window.dataLayer = window.dataLayer || [];
-  // function gtag(){dataLayer.push(arguments);}
-  // gtag('js', new Date());
-  // gtag('config', 'G-XXXXXXXXXX');
+  const script = document.createElement('script');
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GBSLE8VSNN';
+  script.async = true;
+  document.head.appendChild(script);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-GBSLE8VSNN');
 }
 
 function openPrivacy() {
