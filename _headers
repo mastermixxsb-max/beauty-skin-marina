@@ -1,0 +1,12 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+
+/og-image-v2.jpg
+  Content-Type: image/jpeg
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=0, must-revalidate
+
+/og-image.png
+  Content-Type: image/png
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=0, must-revalidate
