@@ -10,7 +10,42 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Deploy to Netlify via API
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          zip -r deploy.zip . -x "*.git*" -x ".github/*"
-          curl -X POST             -H "Authorization: Bearer ${{ secrets.NETLIFY_AUTH_TOKEN }}"             -H "Content-Type: application/zip"             --data-binary "@deploy.zip"             "https://api.netlify.com/api/v1/sites/${{ secrets.NETLIFY_SITE_ID }}/deploys"             | python3 -c "import sys,json; r=json.load(sys.stdin); print("Deploy ID:", r.get("id"), "State:", r.get("state"))"
+          python3 << EOF
+          import os, zipfile, urllib.request, json
+          
+          token = os.environ["NETLIFY_AUTH_TOKEN"]
+          site_id = os.environ["NETLIFY_SITE_ID"]
+          
+          # Kreiraj zip
+          with zipfile.ZipFile("deploy.zip", "w", zipfile.ZIP_DEFLATED) as zf:
+              for root, dirs, files in os.walk("."):
+                  dirs[:] = [d for d in dirs if d not in [".git", ".github"]]
+                  for file in files:
+                      filepath = os.path.join(root, file)
+                      arcname = os.path.relpath(filepath, ".")
+                      zf.write(filepath, arcname)
+          
+          print(f"Zip kreiran: {os.path.getsize('deploy.zip')} bytes")
+          
+          # Deploy
+          with open("deploy.zip", "rb") as f:
+              data = f.read()
+          
+          req = urllib.request.Request(
+              f"https://api.netlify.com/api/v1/sites/{site_id}/deploys",
+              data=data,
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": "application/zip"
+              },
+              method="POST"
+          )
+          with urllib.request.urlopen(req) as resp:
+              result = json.loads(resp.read())
+              print(f"Deploy ID: {result['id']}, State: {result['state']}")
+          EOF
