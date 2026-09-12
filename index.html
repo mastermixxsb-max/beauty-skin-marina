@@ -246,7 +246,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.9
 .price-name{font-size:13px;color:#ddd;font-weight:400;}
 .price-dots{flex:1;border-bottom:1px dotted #333;margin:0 10px;margin-bottom:3px;}
 .price-val{font-family:'Playfair Display',serif;font-size:14px;color:var(--pink);font-weight:600;white-space:nowrap;}
-.price-note{font-size:12px;color:#888;margin-top:28px;letter-spacing:0.5px;}
+.price-note{font-size:12px;color:#888;margin-top:28px;letter-spacing:0.5px;}.price-name-wrap{display:flex;flex-direction:column;gap:2px;}.price-anchor{font-size:10px;color:#787878;letter-spacing:0.3px;}
 
 /* KONTAKT */
 .lokacija{padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
@@ -737,6 +737,7 @@ nav { animation: slideDown 0.6s ease both; }
   <ul class="nav-links" id="navLinks">
     <li><a href="#o-nama" onclick="closeMenu()">O nama</a></li>
     <li><a href="#usluge" onclick="closeMenu()">Usluge</a></li>
+    <li><a href="#cjenik" onclick="closeMenu()">Cjenik</a></li>
     <li><a href="#strucnjaci" onclick="closeMenu()">Stručnjaci</a></li>
     <li><a href="#brendovi" onclick="closeMenu()">Brendovi</a></li>
     <li><a href="#kontakt" onclick="closeMenu()">Kontakt</a></li>
@@ -887,6 +888,536 @@ nav { animation: slideDown 0.6s ease both; }
   </div>
 </section>
 
+
+<section class="section section-dark" id="cjenik">
+  <div class="section-header reveal from-bottom">
+    <div>
+      <div class="section-eyebrow">Cjenik usluga</div>
+      <h2 class="section-title section-title-white">Naš <em>cjenik</em></h2>
+    </div>
+    <a href="/cjenik/salon_ante-starcevica-38-slavonski-brod_BSM001_00001_2026-09-12_0800.csv" class="section-link" download>Preuzmi cjenik (.csv) →</a>
+  </div>
+  <div class="cjenik-grid reveal-stagger">
+    <div class="price-group">
+      <div class="price-group-title">Pedikura</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Estetska pedikura</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 28,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">28,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Estetska pedikura + lakiranje</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Estetska pedikura + trajni lak</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 37,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">37,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 1. stupanj</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 1. stupanj + lakiranje</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 33,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">33,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 1. stupanj + trajni lak</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 45,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">45,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 2. stupanj</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 35,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">35,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 2. stupanj + lakiranje</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 38,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">38,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Medicinska pedikura 2. stupanj + trajni lak</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 50,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">50,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Trajni lak - noge</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 25,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">25,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Rekonstrukcija nokta</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Urasli nokat / kurje oko</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Rezanje noktiju</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">LiftUp gel (palac)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 50,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">50,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">LiftUp gel (mali prsti)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 10,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">10,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Masaža stopala (20 min)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 15,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">15,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Depilacija šećernom pastom</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Potkoljenice (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 25,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">25,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Bikini (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 17,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">17,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Pazuh (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 12,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">12,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Brazilka (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 22,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">22,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Nausnice (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 7,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">7,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Leđa (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Lice (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 12,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">12,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Brada (pasta)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 7,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">7,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Tretmani tijela</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Anticelulitni tretman</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 29,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">29,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Anticelulitna masaža</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 19,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">19,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Piling tijela</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Parafinska kupka</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 10,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">10,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Depilacija voskom</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Cijele noge + bikini</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 27,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">27,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Cijele noge</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 22,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">22,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Potkoljenice</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 12,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">12,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Natkoljenice</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 12,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">12,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Bikini</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 13,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">13,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Pazuh</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 8,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">8,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Ruke</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 10,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">10,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Brazilka</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 18,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">18,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Nausnice</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Leđa</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Lice</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 7,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">7,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Brada</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Poklon bonovi</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Poklon bon 10 EUR</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 10,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">10,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Poklon bon 20 EUR</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Manikura</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Manikura</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 15,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">15,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Manikura + lakiranje</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 17,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">17,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Lakiranje običnim lakom</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Skidanje trajnog laka (manikura)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 20,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">20,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">French manikura</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Popravak nokta</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Skidanje tuđeg rada</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 7,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">7,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Masaža i piling dlanova</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 15,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">15,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Trajni lak - S dužina</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 25,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">25,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Trajni lak - M dužina</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 28,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">28,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Trajni lak - L dužina</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 32,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">32,00 €</span>
+      </div>
+    </div>
+    <div class="price-group">
+      <div class="price-group-title">Njega lica i obrva</div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Korekcija obrva</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 6,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">6,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Korekcija obrva koncem</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 9,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">9,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Bojanje obrva</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 5,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">5,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Masaža lica</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 10,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">10,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Piling lica</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 15,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">15,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Njega lica</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 50,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">50,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Lash Lift</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Brow Lift</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 30,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">30,00 €</span>
+      </div>
+      <div class="price-row">
+        <div class="price-name-wrap">
+          <span class="price-name">Lash i Brow Lift (paket)</span>
+          <span class="price-anchor">Cijena 10.9.2026.: 50,00 €</span>
+        </div>
+        <span class="price-dots"></span>
+        <span class="price-val">50,00 €</span>
+      </div>
+    </div>
+  </div>
+  <p class="price-note">Sukladno Zakonu o iznimnim mjerama kontrole cijena (NN 40/25), uz aktualnu maloprodajnu cijenu svake usluge istaknuta je i sidrena (dodatna) cijena koja je vrijedila na dan 10.9.2026. Cijene trenutno nisu mijenjane od tog datuma, pa su aktualna i sidrena cijena za sada jednake. Strojno čitljiv cjenik u .csv formatu dostupan je na poveznici iznad, sukladno Odluci o objavi cjenika proizvoda i usluga.</p>
+</section>
 
 <div style="text-align:center;padding:20px;background:var(--light);">
   <a href="#kontakt" style="display:inline-flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--pink);font-size:10px;letter-spacing:3px;text-transform:uppercase;">

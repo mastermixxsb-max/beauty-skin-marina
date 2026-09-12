@@ -10,3 +10,8 @@
   Content-Type: image/png
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=0, must-revalidate
+
+/cjenik/*
+  Access-Control-Allow-Origin: *
+  Content-Type: text/csv; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
