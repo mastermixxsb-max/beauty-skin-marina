@@ -1,0 +1,15 @@
+# beautyskinbymarina.hr - robots.txt
+#
+# As a condition of accessing this website, you agree to these content signals:
+# (a) content-signal=yes -> allowed for that use
+# (b) content-signal=no  -> not allowed for that use
+# Signals:
+# search   -> build a search index and show results (not AI summaries)
+# ai-input -> use content as live input for AI answers (RAG, grounding)
+# ai-train -> train or fine-tune AI models
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+Sitemap: https://beautyskinbymarina.hr/sitemap.xml
