@@ -27,7 +27,7 @@ jobs:
       GITLEAKS_VERSION: "8.30.1" # >= 8.30.1 zbog CVE-2026-63728
     steps:
       - name: Checkout (cijela povijest)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -77,6 +77,19 @@ jobs:
                   out += ["| Pravilo | Datoteka | Linija | Commit | Datum | Fingerprint |", "|---|---|---|---|---|---|"]
                   for n in nalazi[:200]:
                       out.append(f"| {n.get('RuleID')} | `{n.get('File')}` | {n.get('StartLine')} | {str(n.get('Commit'))[:7]} | {str(n.get('Date'))[:10]} | `{n.get('Fingerprint')}` |")
+                  # Anotacije: vidljive i u GitHub mobilnoj aplikaciji i citljive preko API-ja
+                  # (SEC). Grupirano po pravilu+datoteci jer GitHub prikaze max 10 po koraku.
+                  grupe = collections.OrderedDict()
+                  for n in nalazi:
+                      grupe.setdefault((n.get("RuleID"), n.get("File")), []).append(n)
+                  for i, ((pravilo, datoteka), lista) in enumerate(grupe.items()):
+                      if i == 9:
+                          print(f"::warning title=Gitleaks::Još {len(grupe) - 9} grupa nalaza - pogledaj sažetak runa.")
+                          break
+                      esc = lambda s: str(s).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+                      prop = lambda s: esc(s).replace(":", "%3A").replace(",", "%2C")
+                      fps = "%0A".join(esc(n.get("Fingerprint")) for n in lista[:30])
+                      print(f"::warning file={prop(datoteka)},line={lista[0].get('StartLine')},title={prop(f'Gitleaks {pravilo} ({len(lista)}x)')}::{fps}")
               else:
                   # Javni repo: sazetak je javan, pa samo brojevi po pravilu
                   out += ["Javni repo - lokacije se ne ispisuju javno. Detalje dohvati lokalno ili preko SEC-a.", "", "| Pravilo | Broj |", "|---|---|"]
