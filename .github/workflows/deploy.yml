@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       
@@ -45,7 +45,7 @@ jobs:
               },
               method="POST"
           )
-          with urllib.request.urlopen(req) as resp:
+          with urllib.request.urlopen(req, timeout=180) as resp:
               result = json.loads(resp.read())
               print(f"Deploy ID: {result['id']}, State: {result['state']}")
           EOF
