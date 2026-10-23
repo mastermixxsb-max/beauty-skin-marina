@@ -1,0 +1,101 @@
+# SEC agent, faza 1 (23.10.2026): tjedni Gitleaks sken CIJELE git povijesti.
+# Samo cita repo. Tajne se NIKAD ne ispisuju (--redact); report se ne uploada.
+# Rezultat cita SEC cron na Cloud Runu (zadnji run ovog workflowa) i javlja preko
+# Pushovera. Isti file je u svim repoima - mijenjati ga svugdje zajedno.
+#
+# Poznate/rijesene nalaze (nakon rotacije tajne) dodaj kao Fingerprint u
+# .gitleaksignore u korijenu repoa - Gitleaks ga cita automatski.
+name: Gitleaks (SEC)
+
+on:
+  schedule:
+    - cron: "0 3 * * 0" # nedjelja 03:00 UTC (04:00/05:00 u Zagrebu)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitleaks
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GITLEAKS_VERSION: "8.30.1" # >= 8.30.1 zbog CVE-2026-63728
+    steps:
+      - name: Checkout (cijela povijest)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Instaliraj Gitleaks
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          base="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
+          tgz="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -sSfL -o "$tgz" "$base/$tgz"
+          curl -sSfL -o sums.txt "$base/gitleaks_${GITLEAKS_VERSION}_checksums.txt"
+          grep " ${tgz}\$" sums.txt | sha256sum -c -
+          tar -xzf "$tgz" gitleaks
+          ./gitleaks version
+
+      - name: Skeniraj povijest
+        id: scan
+        run: |
+          set +e
+          "$RUNNER_TEMP/gitleaks" git . --redact --no-banner --exit-code 2 \
+            --report-format json --report-path "$RUNNER_TEMP/gitleaks.json"
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Sažetak (bez vrijednosti tajni)
+        if: always()
+        env:
+          PRIVATNI: ${{ github.event.repository.private }}
+          RC: ${{ steps.scan.outputs.rc }}
+        run: |
+          python3 - <<'PY'
+          import json, os, collections
+          path = os.path.join(os.environ["RUNNER_TEMP"], "gitleaks.json")
+          try:
+              nalazi = json.load(open(path))
+          except Exception:
+              nalazi = []
+          rc = os.environ.get("RC", "?")
+          out = ["## Gitleaks (SEC)", ""]
+          if rc == "0":
+              out.append("✅ Nema pronađenih tajni u povijesti repoa.")
+          elif rc == "2":
+              out.append(f"🔴 Pronađeno nalaza: **{len(nalazi)}**")
+              out.append("")
+              if os.environ.get("PRIVATNI") == "true":
+                  out += ["| Pravilo | Datoteka | Linija | Commit | Datum | Fingerprint |", "|---|---|---|---|---|---|"]
+                  for n in nalazi[:200]:
+                      out.append(f"| {n.get('RuleID')} | `{n.get('File')}` | {n.get('StartLine')} | {str(n.get('Commit'))[:7]} | {str(n.get('Date'))[:10]} | `{n.get('Fingerprint')}` |")
+              else:
+                  # Javni repo: sazetak je javan, pa samo brojevi po pravilu
+                  out += ["Javni repo - lokacije se ne ispisuju javno. Detalje dohvati lokalno ili preko SEC-a.", "", "| Pravilo | Broj |", "|---|---|"]
+                  for pravilo, broj in collections.Counter(n.get("RuleID") for n in nalazi).most_common():
+                      out.append(f"| {pravilo} | {broj} |")
+          else:
+              out.append(f"⚠️ Gitleaks nije završio (izlazni kod {rc}).")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+              f.write("\n".join(out) + "\n")
+          PY
+
+      - name: "Skeniraj: pronađene tajne"
+        if: steps.scan.outputs.rc == '2'
+        run: |
+          echo "::error::Gitleaks je pronašao tajne - pogledaj sažetak runa."
+          exit 1
+
+      - name: Greška skenera
+        if: steps.scan.outputs.rc != '0' && steps.scan.outputs.rc != '2'
+        run: |
+          echo "::error::Gitleaks nije uspio (izlazni kod ${{ steps.scan.outputs.rc }})."
+          exit 1
