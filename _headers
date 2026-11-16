@@ -20,3 +20,6 @@
   Access-Control-Allow-Origin: *
   Content-Type: text/csv; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
+
+/cjenik/usluge.csv
+  Content-Disposition: inline; filename="98090798_ZA_SVA_PRODAJNA_MJESTA_USLUGE_00003_20261116_2005.csv"
