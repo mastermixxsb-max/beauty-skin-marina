@@ -1,2 +1,6 @@
 https://beautyskinbymarina.netlify.app/* https://beautyskinbymarina.hr/:splat 301!
 /cjenik/usluge.csv /cjenik/98090798_ZA_SVA_PRODAJNA_MJESTA_USLUGE_00003_20261116_2005.csv 200
+# Stare adrese CSV-ova (prije premještanja u /cjenik/arhiva/ 16. 11. 2026)
+/cjenik/salon_ante-starcevica-38-slavonski-brod_BSM001_00001_2026-09-12_0800.csv /cjenik/arhiva/salon_ante-starcevica-38-slavonski-brod_BSM001_00001_2026-09-12_0800.csv 301
+/cjenik/salon_ante-starcevica-38-slavonski-brod_BSM001_00002_2026-11-15_1700.csv /cjenik/arhiva/salon_ante-starcevica-38-slavonski-brod_BSM001_00002_2026-11-15_1700.csv 301
+/cjenik/98090798_salon_ante-starcevica-38-slavonski-brod_BSM001_usluge_00003_20261116_2030.csv /cjenik/usluge.csv 301
